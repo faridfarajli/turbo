@@ -28,7 +28,8 @@ public class SpringSecurity {
                 .authorizeHttpRequests(auth->{auth
                         .requestMatchers("/login**,/register**,/find-all, /find**,/by-car**,by-car-model**","/delete**").permitAll()
                         .requestMatchers("/create/specs").hasRole("USER")
-                        .requestMatchers("/create/model", "/create/car").hasRole("ADMIN")
+                        .requestMatchers("/delete**").hasRole("USER")
+                        .requestMatchers("/create/model", "/create/car","/delete**","/create/specs").hasRole("ADMIN")
                         .anyRequest().permitAll();
                 });
       return http.build();
