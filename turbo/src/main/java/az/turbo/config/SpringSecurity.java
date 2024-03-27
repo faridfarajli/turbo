@@ -26,7 +26,7 @@ public class SpringSecurity {
         http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth->{auth
-                        .requestMatchers("/login**,/register**,/find-all, /find**,/by-car**,by-car-model**","/delete**").permitAll()
+                        .requestMatchers("/login**","/register**","/find-all", "/find**","/by-car**","by-car-model**","/delete**").permitAll()
                         .requestMatchers("/create/specs").hasRole("USER")
                         .requestMatchers("/delete**").hasRole("USER")
                         .requestMatchers("/create/model", "/create/car","/delete**","/create/specs").hasRole("ADMIN")
